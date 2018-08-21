@@ -32,24 +32,4 @@ class RestaurantsController < ApplicationController
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
