@@ -1,3 +1,3 @@
 class Restaurant < ApplicationRecord
 
-end
+  end
