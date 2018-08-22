@@ -1,0 +1,17 @@
+<h1>Book a Reservation Right Now!</h1>
+
+<%= form_for @reservation do |f| %>
+
+  <p>
+    <%= f.label :time %>
+    <%= f.number_field :time %>
+  </p>
+
+  <p>
+    <%= f.label :guests %>
+    <%= f.number_field :guests %>
+  </p>
+
+  <p><%= f.submit %></p>
+
+<% end %>
