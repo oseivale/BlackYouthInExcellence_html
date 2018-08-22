@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :reservations, only: %i(new index create show destroy)
   end
 
+  get '/profile' => 'users#profile'
+
   # as an alternative, we could have passed an extra argument in our reservation path of the show page
 
 

@@ -14,4 +14,8 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def profile
+    @reservations = Reservation.all
+  end
 end

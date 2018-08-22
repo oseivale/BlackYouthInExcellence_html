@@ -24,3 +24,7 @@ users = [
 users.each do |user|
   User.create(user)
 end
+
+# reservations = [
+#   {}
+# ]

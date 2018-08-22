@@ -1,0 +1,13 @@
+<%= link_to 'Restaurants', root_path %>
+
+<h1>User Profile</h1>
+
+<h2>Current Reservations</h2>
+
+<% @reservations.each do |reso| %>
+  <p><%= reso.restaurant.name %></p>
+  <p>Reservation date: <%= reso.date %></p>
+  <p>Reservation time: <%= reso.time %></p>
+  <p>Number of guests: <%= reso.guests %></p>
+  <hr>
+<% end %>
