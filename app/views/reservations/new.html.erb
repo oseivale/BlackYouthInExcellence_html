@@ -1,6 +1,6 @@
 <h1>Book a Reservation Right Now!</h1>
 
-<%= form_for @reservation do |f| %>
+<%= form_for [@restaurant, @reservation] do |f| %>  <!--these instances are our arguments for the form -->
 
   <p>
     <%= f.label :time %>

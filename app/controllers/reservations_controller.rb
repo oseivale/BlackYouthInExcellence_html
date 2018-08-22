@@ -3,10 +3,11 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @restaurant = Restaurant.find(params[:restaurant_id])   # Find the restaurant by its ID, save it into the instance variable - making the @restaurant available to us as an argument in our form_for
   end
 
   def create
-    @restaurant = Restaurant.find
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = Reservation.new
     @reservation.time = params[:reservation][:time]
     @reservation.guests = params[:reservation][:guests]

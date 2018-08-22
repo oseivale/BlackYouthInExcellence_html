@@ -9,4 +9,4 @@
   <p>Time Slot: <%= @restaurant.time_slot %></p>
 
 
-  <h4><%= link_to 'Book a Reservation Now!', new_reservation_path %></h4>
+  <h4><%= link_to 'Book a Reservation Now!', new_restaurant_reservation_path(@restaurant) %></h4>
