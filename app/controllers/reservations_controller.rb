@@ -1,5 +1,9 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @reservations = Reservation.all
+  end
+
 
   def new
     @reservation = Reservation.new
@@ -13,13 +17,13 @@ class ReservationsController < ApplicationController
     @reservation.guests = params[:reservation][:guests]
 
     if @reservation.save
-      flash[:notice] = "Your table for #{@reservation.guests} guests at #{@restaurant.name} has been booked for #{@reservation.time}."
+      flash[:notice] = "Your table for #{@reservation.guests} guests at #{@restaurant.name} has been booked for #{@reservation.time}!"
       redirect_to restaurants_url
     end
   end
 
   def show
-
+    @reservations = current_user.reservations
   end
 
   def destroy

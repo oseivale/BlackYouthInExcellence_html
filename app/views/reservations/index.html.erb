@@ -1,0 +1,7 @@
+<p><%= link_to 'Restaurants', root_path %></p>
+
+<h1>Your Current Reservations</h1>
+
+<% @reservations.each do |res| %>
+  <%= res.guests %>
+<% end %>
