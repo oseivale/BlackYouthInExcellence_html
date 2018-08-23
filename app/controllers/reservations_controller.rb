@@ -21,8 +21,10 @@ class ReservationsController < ApplicationController
     @reservation.guests = params[:reservation][:guests]
     @reservation.user_id = session[:user_id]
 
+    @reservation.date = params[:reservation][:date]
+
     if @reservation.save
-      flash[:notice] = "Your table for #{@reservation.guests} guests at #{@restaurant.name} has been booked for #{@reservation.time}!"
+      flash[:notice] = "Your table for #{@reservation.guests} guests at #{@restaurant.name} on #{@reservation.date} has been booked for #{@reservation.time}!"
       redirect_to restaurants_url
     else
       render :new
@@ -34,7 +36,10 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    flash[:notice] = "You have cancelled the reservation."
+    redirect_to profile_path
   end
 
   private

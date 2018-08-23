@@ -9,5 +9,6 @@
   <p>Reservation date: <%= reso.date %></p>
   <p>Reservation time: <%= reso.time %></p>
   <p>Number of guests: <%= reso.guests %></p>
+  <%= link_to 'Cancel Reservation', restaurant_reservation_path(reso.restaurant, reso), method: :delete, data: {confirm: "Are you sure you want to cancel this reservation?"} %>
   <hr>
 <% end %>
