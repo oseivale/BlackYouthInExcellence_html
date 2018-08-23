@@ -6,11 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Reservation.destroy_all
 Restaurant.destroy_all
 User.destroy_all
 
 restaurants = [
-  {name: "Graham's", address: "4 Street st", neighborhood: "Grahamville", price_range: "$$$$$", menu: "Graham's Crackers", time_slot: 12-11}
+  {name: "Graham's", address: "4 Street st", neighborhood: "Grahamville", price_range: "$$$$$", menu: "Graham's Crackers", open: 6, close: 20}
 ]
 
 restaurants.each do |restaurant|
@@ -18,7 +19,7 @@ restaurants.each do |restaurant|
 end
 
 users = [
-  {email: "fake@fake.com", password: "fake"}
+  {email: "fake@fake.com", password: "fake", password_confirmation: "fake"}
 ]
 
 users.each do |user|

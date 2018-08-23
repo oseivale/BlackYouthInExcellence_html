@@ -4,6 +4,18 @@
 
 <%= form_for [@restaurant, @reservation] do |f| %>  <!--these instances are our arguments for the form -->
 
+  <% if @reservation.errors.any?%>
+
+  <h2>Warning: <%= pluralize(@reservation.errors.count, "error") %> stopped this reservation from being saved: </h2>
+
+  <ul>
+    <% @reservation.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+
+  <% end %>
+
   <p>
     <%= f.label :time %>
     <%= f.number_field :time %>

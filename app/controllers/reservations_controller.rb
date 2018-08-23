@@ -23,6 +23,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       flash[:notice] = "Your table for #{@reservation.guests} guests at #{@restaurant.name} has been booked for #{@reservation.time}!"
       redirect_to restaurants_url
+    else
+      render :new
     end
   end
 
