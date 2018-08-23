@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_login
+  before_action :require_login, :except => [:index, :new, :create]
 
   def new
     @user = User.new

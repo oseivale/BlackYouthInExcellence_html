@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
   before_action :require_login
-  
+
 
   def index
     @reservations = Reservation.all
@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @reservation = Reservation.new
+    @reservation = Reservation.new(restaurant_id: params[:restaurant_id])
     @reservation.time = params[:reservation][:time]
     @reservation.guests = params[:reservation][:guests]
 
