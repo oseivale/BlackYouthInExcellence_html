@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
   end
 
   private

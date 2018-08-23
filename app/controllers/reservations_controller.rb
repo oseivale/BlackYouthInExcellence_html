@@ -19,6 +19,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(restaurant_id: params[:restaurant_id])
     @reservation.time = params[:reservation][:time]
     @reservation.guests = params[:reservation][:guests]
+    @reservation.user_id = session[:user_id]
 
     if @reservation.save
       flash[:notice] = "Your table for #{@reservation.guests} guests at #{@restaurant.name} has been booked for #{@reservation.time}!"
