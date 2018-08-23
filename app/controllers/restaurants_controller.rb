@@ -40,16 +40,6 @@ class RestaurantsController < ApplicationController
     redirect_to root_path
   end
 
-  # def op_hours
-  #   if @restaurant.time = @restaurant.open
-  #     flash[:notice] = "Your reservation has been made!"
-  #     redirect_to profile_path
-  #   else
-  #     flash[:notice] = "The restaurant is closed at that time."
-  #     redirect_to new_restaurant_reservation_path
-  #   end
-  # end
-
   private
 
   def require_login
@@ -58,10 +48,5 @@ class RestaurantsController < ApplicationController
       redirect_to root_path  #redirect to login page later
     end
   end
-
-
-
-
-
 
 end

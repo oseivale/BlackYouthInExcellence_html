@@ -1,3 +1,5 @@
+<%= link_to 'Back to Restaurants', root_path %>
+
 <% if @restaurant.errors.any? %>
 
 <h2>Warning: <%= pluralize(@restaurant.errors.count, "error") %> </h2>
@@ -50,8 +52,5 @@
 </p>
 
 <p><%= f.submit %></p>
-
-
-
 
 <% end %>

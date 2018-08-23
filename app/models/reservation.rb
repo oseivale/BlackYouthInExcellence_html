@@ -10,4 +10,10 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def whatever
+    if self.date < Time.now.hour
+      then flash[:notice]
+
+  end
+
 end
