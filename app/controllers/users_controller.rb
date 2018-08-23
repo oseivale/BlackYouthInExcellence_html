@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :require_login
+
   def new
     @user = User.new
   end
@@ -17,5 +20,14 @@ class UsersController < ApplicationController
 
   def profile
     @reservations = Reservation.all
+  end
+
+  private
+
+  def require_login
+    if !current_user
+      flash[:notice] = "You must be logged in to do this"
+      redirect_to root_path
+    end
   end
 end

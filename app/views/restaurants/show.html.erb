@@ -2,11 +2,13 @@
 <h1><%= @restaurant.name %></h1>
 
 
-  <p>Address: <%= @restaurant.address %></p>
-  <p>Neighborhood: <%= @restaurant.neighborhood %></p>
-  <p>Price Range: <%= @restaurant.price_range %></p>
-  <p>Menu: <%= @restaurant.menu %></p>
-  <p>Time Slot: <%= @restaurant.time_slot %></p>
+<p>Address: <%= @restaurant.address %></p>
+<p>Neighborhood: <%= @restaurant.neighborhood %></p>
+<p>Price Range: <%= @restaurant.price_range %></p>
+<p>Menu: <%= @restaurant.menu %></p>
+<p>Time Slot: <%= @restaurant.open %> - <%= @restaurant.close %></p>
 
 
-  <h4><%= link_to 'Book a Reservation Now!', new_restaurant_reservation_path(@restaurant) %></h4>
+<h4><%= link_to 'Book a Reservation Now!', new_restaurant_reservation_path(@restaurant) %></h4>
+
+<p><%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete this juicy restaurant?"}%>

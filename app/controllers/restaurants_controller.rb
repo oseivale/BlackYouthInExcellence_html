@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+
+  before_action :require_login, except: [:index, :show]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -15,7 +18,8 @@ class RestaurantsController < ApplicationController
     @restaurant.neighborhood = params[:restaurant][:neighborhood]
     @restaurant.price_range = params[:restaurant][:price_range]
     @restaurant.menu = params[:restaurant][:menu]
-    @restaurant.time_slot = params[:restaurant][:time_slot]
+    @restaurant.open = params[:restaurant][:open]
+    @restaurant.close = params[:restaurant][:close]
 
     if @restaurant.save
       flash[:notice] = "Your restaurant has been successfully added."
@@ -29,7 +33,31 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    flash[:notice] = "You have deleted the restaurant."
+    redirect_to root_path
+  end
+
+  # def op_hours
+  #   if @restaurant.time = @restaurant.open
+  #     flash[:notice] = "Your reservation has been made!"
+  #     redirect_to profile_path
+  #   else
+  #     flash[:notice] = "The restaurant is closed at that time."
+  #     redirect_to new_restaurant_reservation_path
+  #   end
+  # end
+
   private
+
+  def require_login
+    if !current_user
+      flash[:notice] = "You must be logged in to do this"
+      redirect_to root_path  #redirect to login page later
+    end
+  end
 
 
 

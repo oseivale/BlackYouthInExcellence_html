@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
 
+  before_action :require_login
+  
 
   def index
     @reservations = Reservation.all
@@ -32,6 +34,14 @@ class ReservationsController < ApplicationController
 
   end
 
+  private
+
+  def require_login
+    if !current_user
+      flash[:notice] = "You must be logged in to do this"
+      redirect_to root_path
+    end
+  end
 
 
 
